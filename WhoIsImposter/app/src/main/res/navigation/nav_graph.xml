@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.view.HomeFragment"
+        android:label="Impostor Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_setup"
+            app:destination="@id/setupFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_home_to_stats"
+            app:destination="@id/statsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.example.view.SetupFragment"
+        android:label="Setup Game"
+        tools:layout="@layout/fragment_setup">
+        <action
+            android:id="@+id/action_setup_to_passDevice"
+            app:destination="@id/passDeviceFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passDeviceFragment"
+        android:name="com.example.view.PassDeviceFragment"
+        android:label="Secret Reveal"
+        tools:layout="@layout/fragment_pass_device">
+        <action
+            android:id="@+id/action_passDevice_to_gameplay"
+            app:destination="@id/gameplayFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameplayFragment"
+        android:name="com.example.view.GameplayFragment"
+        android:label="Active Game"
+        tools:layout="@layout/fragment_gameplay">
+        <action
+            android:id="@+id/action_gameplay_to_voting"
+            app:destination="@id/votingFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/votingFragment"
+        android:name="com.example.view.VotingFragment"
+        android:label="Vote Imposter"
+        tools:layout="@layout/fragment_voting">
+        <action
+            android:id="@+id/action_voting_to_results"
+            app:destination="@id/resultsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.view.ResultsFragment"
+        android:label="Reveal Results"
+        tools:layout="@layout/fragment_results">
+        <action
+            android:id="@+id/action_results_to_setup"
+            app:destination="@id/setupFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_results_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="com.example.view.StatsFragment"
+        android:label="Gameplay History"
+        tools:layout="@layout/fragment_stats">
+        <action
+            android:id="@+id/action_stats_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>

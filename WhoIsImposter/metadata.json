@@ -1,0 +1,6 @@
+{
+  "name": "Who's the Impostor?",
+  "description": "An engaging, offline-first local multiplayer social deduction party game for friends and family.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

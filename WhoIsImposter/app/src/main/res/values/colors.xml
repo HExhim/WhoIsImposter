@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core Brand Palette (Bold Typography Theme) -->
+    <color name="primary_indigo">#F05454</color>
+    <color name="primary_dark_indigo">#9E3333</color>
+    <color name="secondary_crimson">#F05454</color>
+    <color name="accent_lime">#F05454</color>
+    <color name="accent_green">#FFFFFF</color>
+
+    <color name="card_orange">#F05454</color>
+    <color name="card_purple">#FFFFFF</color>
+    <color name="card_teal">#222831</color>
+
+    <!-- Theme neutral bases (Premium Dark Space) -->
+    <color name="dark_canvas">#0F0F0F</color>
+    <color name="dark_surface">#161A21</color>
+    <color name="dark_surface_card">#222831</color>
+    <color name="divider_line">#343D4B</color>
+
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_grey_sub">#B0B5BC</color>
+    <color name="text_grey_hint">#70757D</color>
+
+    <!-- Translucent Overlay -->
+    <color name="white_overlay">#12FFFFFF</color>
+    <color name="black_overlay">#AA000000</color>
+    <color name="indigo_overlay">#33F05454</color>
+</resources>

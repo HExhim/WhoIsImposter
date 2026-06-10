@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Material 3 dark-theme design mapping -->
+    <style name="Theme.MyApplication" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/primary_indigo</item>
+        <item name="colorSecondary">@color/secondary_crimson</item>
+        <item name="colorTertiary">@color/accent_lime</item>
+
+        <!-- Neutral Bases -->
+        <item name="android:windowBackground">@color/dark_canvas</item>
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorSurfaceVariant">@color/dark_surface_card</item>
+
+        <!-- Status & Navigation Styles -->
+        <item name="android:statusBarColor">@color/dark_canvas</item>
+        <item name="android:navigationBarColor">@color/dark_canvas</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

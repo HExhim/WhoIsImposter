@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_canvas"
+    android:padding="20dp">
+
+    <!-- ============================================== -->
+    <!-- STAGE A: STANDARD WORD DISCUSSION CONTAINER -->
+    <!-- ============================================== -->
+    <LinearLayout
+        android:id="@+id/layout_discussion_phase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_disc_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topic: Bollywood"
+            android:textColor="@color/accent_lime"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="DISCUSS &amp; FIND THE SPY"
+            android:textColor="@color/text_white"
+            android:textSize="22sp"
+            android:textStyle="bold|italic"
+            android:letterSpacing="-0.03" />
+
+        <!-- GIANT ACCURACY COUNTDOWN TIMER -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="40dp"
+            app:cardCornerRadius="110dp"
+            app:cardBackgroundColor="@color/dark_surface"
+            app:strokeWidth="4dp"
+            app:strokeColor="@color/secondary_crimson">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_countdown_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:60"
+                    android:textColor="@color/text_white"
+                    android:textSize="48sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4.dp"
+                    android:text="Seconds Left"
+                    android:textColor="@color/text_grey_sub"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CLEVER INSTRUCTIONS CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/dark_surface_card"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/divider_line">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rules of Debate:"
+                    android:textColor="@color/card_orange"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="• Ask other players tricky questions about the secret topic.\n• Give vague clues so you prove your innocence but don't give the word to the Spy.\n• Spot who is speaking too vaguely or looks nervous!"
+                    android:textColor="@color/text_grey_sub"
+                    android:textSize="14sp"
+                    android:gravity="start" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_stop_timer_vote"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="STOP TIMER &amp; VOTE"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:backgroundTint="@color/secondary_crimson" />
+
+    </LinearLayout>
+
+    <!-- ============================================== -->
+    <!-- STAGE B: ACTIVE TOUCH DRAWING CANVAS ROUND -->
+    <!-- ============================================== -->
+    <LinearLayout
+        android:id="@+id/layout_paint_phase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- PAINTER HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_painter_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active Artist"
+                    android:textColor="@color/accent_lime"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
+
+                <TextView
+                    android:id="@+id/tv_painter_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ali"
+                    android:textColor="@color/text_white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_drawing_word_reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Draw: BIRYANI"
+                android:textColor="@color/card_orange"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- DRAWING VIEW FRAME -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/text_white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/divider_line">
+
+            <!-- CUSTOM TOUCH DRAWING VIEW CANVAS -->
+            <com.example.util.DrawingView
+                android:id="@+id/canvas_painter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- PALETTES AND BACK BUTTON ACTIONS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_paint_undo"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Undo"
+                android:textSize="12sp"
+                android:textColor="@color/text_white"
+                app:strokeColor="@color/divider_line"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_paint_clear"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:text="Clear"
+                android:textSize="12sp"
+                android:textColor="@color/secondary_crimson"
+                app:strokeColor="@color/secondary_crimson"
+                app:cornerRadius="8dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <!-- COLOR CIRCULAR SWATCH CHIPS -->
+            <ImageButton
+                android:id="@+id/color_chip_black"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@android:color/transparent"
+                android:src="@android:color/black"
+                android:contentDescription="Black Pen" />
+
+            <ImageButton
+                android:id="@+id/color_chip_indigo"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:src="@color/primary_indigo"
+                android:contentDescription="Indigo Pen" />
+
+            <ImageButton
+                android:id="@+id/color_chip_crimson"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:src="@color/secondary_crimson"
+                android:contentDescription="Crimson Pink Pen" />
+
+            <ImageButton
+                android:id="@+id/color_chip_lime"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:src="@color/accent_lime"
+                android:contentDescription="Lime Green Pen" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_paint_submit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:text="SUBMIT DRAWING"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/accent_lime" />
+
+    </LinearLayout>
+
+    <!-- ============================================== -->
+    <!-- STAGE C: GROUP MULTIPLAYER SKETCHES GALLERY VIEW -->
+    <!-- ============================================== -->
+    <LinearLayout
+        android:id="@+id/layout_gallery_phase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sketches Gallery"
+            android:textColor="@color/text_white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Analyze who drew without knowing the keyword!"
+            android:textColor="@color/text_grey_sub"
+            android:textSize="12sp" />
+
+        <!-- DRAWINGS GRID RECYCLER -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_drawings_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_gallery_to_voting"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:text="PROCEED TO VOTE"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:backgroundTint="@color/secondary_crimson" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

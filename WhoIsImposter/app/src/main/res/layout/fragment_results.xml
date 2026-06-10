@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/dark_canvas">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <!-- DEFEAT/VICTORY BANNER CONTAINER -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/winner_banner_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="@color/card_purple"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_match_winner_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INNOCENTS WIN!"
+                    android:textColor="@color/text_white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_match_winner_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="The imposter was successfully fished out of the group!"
+                    android:textColor="@color/text_grey_sub"
+                    android:textSize="14sp"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- TITLE LIST ROSTER -->
+        <TextView
+            android:id="@+id/results_list_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Player Roles &amp; Secrets"
+            android:textColor="@color/card_teal"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/winner_banner_card"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- REC_VIEW OF ALL ACTIVE ROLE REVEALS -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_results_roles"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/dark_surface"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/results_list_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- AWARDS & ACHIEVEMENTS TITLE SEGMENT -->
+        <TextView
+            android:id="@+id/awards_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="🏆 MATCH AWARDS &amp; ACHIEVEMENTS"
+            android:textColor="@color/text_white"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            android:letterSpacing="0.05"
+            app:layout_constraintTop_toBottomOf="@id/rv_results_roles"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/container_awards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/awards_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- LOBBY MOVEMENT FLOWS -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_replay_same"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="24dp"
+            android:text="PLAY ANOTHER ROUND"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:backgroundTint="@color/secondary_crimson"
+            android:tag="replay_round_button"
+            android:contentDescription="Configure and run another game"
+            app:layout_constraintTop_toBottomOf="@id/container_awards"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back_home"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:text="RETURN TO MAIN SCREEN"
+            android:textSize="14sp"
+            android:textColor="@color/text_white"
+            app:strokeColor="@color/primary_indigo"
+            app:cornerRadius="16dp"
+            android:tag="back_home_button"
+            android:contentDescription="Navigate back to Title home lobby"
+            app:layout_constraintTop_toBottomOf="@id/btn_replay_same"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

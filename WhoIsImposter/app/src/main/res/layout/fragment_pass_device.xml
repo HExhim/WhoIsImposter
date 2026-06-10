@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_canvas"
+    android:padding="24dp">
+
+    <!-- CURRENT PROGRESS INDICATOR -->
+    <TextView
+        android:id="@+id/tv_reveal_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLAYER 1 OF 4"
+        android:textColor="@color/accent_lime"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- PROMPT HOLDER CONTAINER -->
+    <TextView
+        android:id="@+id/tv_pass_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Pass physical device to:"
+        android:textColor="@color/text_grey_sub"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tv_reveal_progress" />
+
+    <TextView
+        android:id="@+id/tv_target_player_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Simran"
+        android:textColor="@color/text_white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tv_pass_prompt" />
+
+    <TextView
+        android:id="@+id/tv_pass_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="No spying allowed! Stand away from Simran!"
+        android:textColor="@color/secondary_crimson"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tv_target_player_name" />
+
+    <!-- MYSTERIOUS WORD CONTAINER CARD -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_secret_unveil"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginVertical="32dp"
+        app:cardCornerRadius="24dp"
+        app:cardBackgroundColor="@color/dark_surface"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/primary_indigo"
+        app:layout_constraintTop_toBottomOf="@id/tv_pass_subtitle"
+        app:layout_constraintBottom_toTopOf="@id/btn_action_confirm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp">
+
+            <!-- MYSTERIOUS UNREVEALED PORTION -->
+            <LinearLayout
+                android:id="@+id/layout_hidden_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mystery_placeholder"
+                    android:textColor="@color/primary_indigo"
+                    android:textSize="64sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="TAP CARD TO REVEAL WORD"
+                    android:textColor="@color/text_grey_sub"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
+
+            </LinearLayout>
+
+            <!-- REVEALED CODENAME STATE (HIDDEN BY DEFAULT IN JAVA) -->
+            <LinearLayout
+                android:id="@+id/layout_revealed_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Secret Word is:"
+                    android:textColor="@color/card_orange"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_revealed_word_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="BIRYANI"
+                    android:textColor="@color/text_white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_role_descriptor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Role: Innocent Reporter"
+                    android:textColor="@color/accent_green"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Tap card to HIDE word again!"
+                    android:textColor="@color/text_grey_hint"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ACTION DISCOVERY BUTTONS -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_action_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="I HAVE MEMORIZED CODENAME"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:cornerRadius="16dp"
+        app:backgroundTint="@color/accent_lime"
+        android:tag="confirm_memorized_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
